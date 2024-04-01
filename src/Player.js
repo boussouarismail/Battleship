@@ -5,3 +5,5 @@ class Player {
         this.board = new gb();
     }
 }
+
+module.exports = Player;
