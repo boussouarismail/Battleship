@@ -1,0 +1,105 @@
+body {
+    height: 95svh;
+    /*border: 2px dashed blue;*/
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    align-self: center;
+    font-size: 200%;
+    padding: 1em 1em 1em 1em;
+    text-align: center;
+}
+
+container {
+    /*border: 2px dashed red;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+}
+
+container > div {
+    margin: 1em 1em 1em 1em;
+    width: 30%;
+    /*border: 1px solid greenyellow;*/
+    padding: 1em 1em 1em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content : center;
+    align-items: center;
+    width: clamp(40px, 50%, 400px) ;
+}
+
+    .player {
+        
+    }
+    .AI {
+    }
+
+        .field {
+            /*border: 1px dashed black;*/
+            height: 20em;
+            width: 20em;
+            display: grid;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, auto);
+        }
+
+        .field > div {
+            border: 1px solid black;
+        }
+        .name {
+            margin: 1em 1em 1em 1em;
+        }
+
+
+footer{
+    /*border: 1px solid red;*/
+    align-self: center;
+    position: relative;
+    bottom: 5px;
+}
+
+.positionsboard {
+    background-color: bisque;
+    opacity: 0.9 ;
+    position: absolute;
+    top: 0;
+    width: 95vw;
+    height: 95vh;
+    align-self: center;
+    font-size: 200%;
+    padding: 1em 1em 1em 1em;
+    text-align: center;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+    
+    .positionsboard > div {
+        /*border: 1px solid red;*/
+        width: 95vw;
+        margin: 1rem 1rem 1rem 1rem ;
+    }
+    .positionsboard > button {
+        font-size: xx-large;
+        width: 5vw;
+        height: 5vw;
+    }
+    .positionsboard > .field1 {
+        /*border: 1px dashed greenyellow;*/
+        background-color: white;
+        height: 50vh;
+        width: 50vh;
+        display: grid;
+        grid-template-columns: repeat(10, auto);
+        grid-template-rows: repeat(10, auto);
+    }
+        .field1 > div {
+        border: 1px solid black;
+        }
+
