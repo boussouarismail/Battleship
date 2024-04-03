@@ -9,7 +9,6 @@ class Gameboard {
                 this.board[i][j] = {ship : null,hit : false};
             }
         }
-        console.log(this.board);
     }
 
     placeShips (ship, x, y){

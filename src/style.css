@@ -74,7 +74,7 @@ footer{
     padding: 1em 1em 1em 1em;
     text-align: center;
     border: 1px solid red;
-    display: flex;
+    display:flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
@@ -101,5 +101,10 @@ footer{
     }
         .field1 > div {
         border: 1px solid black;
+        background-color: blueviolet;
+        opacity: 1;
         }
+.red {
+    background-color:aquamarine;
+}
 
