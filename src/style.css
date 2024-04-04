@@ -14,7 +14,7 @@ header{
 
 container {
     /*border: 2px dashed red;*/
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content: center;
     height: 100%;
@@ -58,8 +58,13 @@ container > div {
 footer{
     /*border: 1px solid red;*/
     align-self: center;
-    position: relative;
+    position: fixed;
     bottom: 5px;
+    background-color: rgb(159, 235, 235);
+    width: 100vw;
+    height: 30px;
+    text-align: center;
+    text-justify:newspaper;
 }
 
 .positionsboard {

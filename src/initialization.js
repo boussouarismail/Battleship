@@ -1,13 +1,13 @@
-const field = require("./field.js");
+const field    = require("./field.js");
 const hovering = require("./hovering.js");
-const player = require("./Player.js");
-const ship = require("./Ship.js");
+const player   = require("./Player.js");
+const ship     = require("./Ship.js");
 
-let carrieer = new ship(5); 
-let battleship = new ship(4);
-let cruiser = new ship(3);
-let submarine = new ship(3);
-let destroyer = new ship (2);
+let carrieer   = new ship(5, "carrieer"); 
+let battleship = new ship(4, "battleship");
+let cruiser    = new ship(3, "cruiser");
+let submarine  = new ship(3, "submarine");
+let destroyer  = new ship(2, "destroyer");
 
 let currentShip = carrieer;
 
@@ -15,6 +15,8 @@ let player1 = new player();
 let hov = new hovering(".field1 > div", 5, true);
 
 const div = document.querySelector(".positionsboard");
+const container = document.querySelector("container");
+const shipName = document.querySelector(".positionsboard > div > span");
 
 function init() {
     field(".field");
@@ -47,6 +49,7 @@ function init() {
                 hov.turn(!currentShip.position);
                 hov.h = currentShip.position;
                 hov.num = currentShip.length;
+                shipName.textContent = currentShip.name;
             } 
         });
     });
@@ -71,6 +74,7 @@ function switchShip () {
             break;
         default:
             div.style.display = "none";
+            container.style.display = "flex";
             break;
     }
     
