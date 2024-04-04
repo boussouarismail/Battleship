@@ -7,8 +7,8 @@ class plasing {
         this.place = true;
     }
 
-    turn() {
-        if (this.h) {
+    turn(p = this.h) {
+        if (p) {
             this.h = false
             this.hv = 10;  
         }else{
@@ -21,8 +21,18 @@ class plasing {
         
         const hov = document.querySelectorAll(this.div);
         hov.forEach(box => {
-            //box.removeEventListener("mouseover");
             box.addEventListener("mouseover", () => {
+                if (box.style.backgroundColor == "black") {
+                    this.place = false;
+                    return;                    
+                }
+                for (let i = 0; i < this.num; i++) {
+                    if ( hov[+box.id.substring(1,3)+i*this.hv] && hov[+box.id.substring(1,3)+i*this.hv].style.backgroundColor == "black") {
+                        this.place = false;
+                        return;
+                    }
+                }
+
                 box.style.backgroundColor = "greenyellow";
                 for (let i = 0; i < this.num; i++) {
                     if (hov[+box.id.substring(1,3)+i*this.hv] &&
@@ -55,13 +65,24 @@ class plasing {
         
           hov.forEach(box => 
             box.addEventListener("mouseout", () => {
-                box.style.backgroundColor = "blueviolet";
-                for (let i = 0; i < 5; i++) {
-                    if (hov[+box.id.substring(1,3)+i*this.hv] &&
-                        (((+box.id.substring(1,3)+i) < ((box.id.substring(1,2)*10+10))) || !this.h)) {
-                        hov[+box.id.substring(1,3)+i*this.hv].style.backgroundColor = "blueviolet";   
+                if (box.style.backgroundColor == "black") {
+                    return;                    
+                }
+                for (let i = 0; i < this.num; i++) {
+                    if (hov[+box.id.substring(1,3)+i*this.hv] && hov[+box.id.substring(1,3)+i*this.hv].style.backgroundColor == "black") {
+                        return;
                     }
                 }
+                if (box.style.backgroundColor != "black") {
+                    box.style.backgroundColor = "blueviolet";
+                    for (let i = 0; i < this.num; i++) {
+                        if (hov[+box.id.substring(1,3)+i*this.hv] &&
+                            (((+box.id.substring(1,3)+i) < ((box.id.substring(1,2)*10+10))) || !this.h)) {
+                            hov[+box.id.substring(1,3)+i*this.hv].style.backgroundColor = "blueviolet";   
+                        }
+                    } 
+                }
+               
             })    
           )  
     }
@@ -70,3 +91,5 @@ class plasing {
 }
 
 module.exports = plasing;
+
+

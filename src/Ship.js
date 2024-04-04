@@ -18,10 +18,11 @@ class Ship {
     }
 
     reposition(){
-        if (this.position) {
+        if (this.position == true) {
             this.position = false;
+        }else{
+            this.position = true;
         }
-        this.position = true;
     }
 }
 
