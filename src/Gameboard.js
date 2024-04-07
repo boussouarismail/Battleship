@@ -12,6 +12,7 @@ class Gameboard {
     }
 
     placeShips (ship, x, y){
+        //you need to place ships without conflict
         if(x < 0 || x > 10 || y < 0 || y > 10 ){
             console.log("wrong coordinates !");
             return;
@@ -30,16 +31,17 @@ class Gameboard {
     receiveAttack (x, y){
         if (this.board[x][y].ship) {
             let ship =  this.board[x][y].ship; 
-            ship.hit ;
+            ship.hit() ;
             this.board[x][y].hit = true; //already boombed 
             if (ship.sunk) {
                 this.ships--;   
             }
-            if (this.ships == 0) {
-                this.allSink == true;
-            }
+            
         }else{
             this.board[x][y].hit = true; //already boombed   
+        }
+        if (this.ships == 0) {
+            this.allSink = true;
         }
     }
 }

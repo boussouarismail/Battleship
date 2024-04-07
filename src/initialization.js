@@ -30,9 +30,7 @@ function init() {
 
     btn.addEventListener("click", () => {
         currentShip.reposition();
-        console.log(currentShip.position);
         hov.turn(!currentShip.position);
-        console.log(hov.h);
         hov.num = currentShip.length;
         hov.hovering();
     });
