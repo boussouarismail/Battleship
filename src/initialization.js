@@ -1,6 +1,6 @@
 const field    = require("./field.js");
 const hovering = require("./hovering.js");
-const player   = require("./Player.js");
+const player1   = require("./Player.js");
 const ship     = require("./Ship.js");
 
 let carrieer   = new ship(5, "carrieer"); 
@@ -10,20 +10,20 @@ let submarine  = new ship(3, "submarine");
 let destroyer  = new ship(2, "destroyer");
 
 let currentShip = carrieer;
-
-let player1 = new player();
+//let  player1 = new player();
 let hov = new hovering(".field1 > div", 5, true);
 
+field(".field");
+field(".field1");
+
+const btn = document.querySelector("button");
+const cells = document.querySelectorAll(".field1 > div");
 const div = document.querySelector(".positionsboard");
 const container = document.querySelector("container");
 const shipName = document.querySelector(".positionsboard > div > span");
+const cellsAI = document.querySelectorAll(".AI > .field > div");
 
 function init() {
-    field(".field");
-    field(".field1");
-
-    const btn = document.querySelector("button");
-    const cells = document.querySelectorAll(".field1 > div");
 
     hov.hovering();
 
@@ -36,8 +36,6 @@ function init() {
         hov.num = currentShip.length;
         hov.hovering();
     });
-    
-    console.log(cells)
 
     cells.forEach(cell=>{
         
@@ -50,6 +48,7 @@ function init() {
                 hov.h = currentShip.position;
                 hov.num = currentShip.length;
                 shipName.textContent = currentShip.name;
+                hov.place = false;
             } 
         });
     });
@@ -75,13 +74,14 @@ function switchShip () {
         default:
             div.style.display = "none";
             container.style.display = "flex";
+            display(player1.Board.board, cellsAI);
             break;
     }
     
 };
 
 function display(board, cells) {
-
+    //console.log(cells)
     for (let i = 0; i < 10; i++) {
         for (let j = 0; j < 10; j++) {
             if (board[i][j].ship) {
@@ -92,8 +92,6 @@ function display(board, cells) {
         }
     }
 };
-
-
 
 module.exports = init;
 
