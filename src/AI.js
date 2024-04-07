@@ -32,7 +32,11 @@ class AI {
     placeShip (ship){
         let x = Math.floor(Math.random() * 10);
         let y = Math.floor(Math.random() * 10);  
-        ship.position = Math.floor(Math.random())>0.5 ? true : false; 
+        if (Math.floor(Math.random()*10) > 5) {
+            ship.position = true;  
+        }else{
+            ship.position = false;  
+        }
         let x1 = x;
         let y1 = y;
         let bool = true;
