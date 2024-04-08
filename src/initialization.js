@@ -21,6 +21,7 @@ const cells = document.querySelectorAll(".field1 > div");
 const div = document.querySelector(".positionsboard");
 const container = document.querySelector("container");
 const shipName = document.querySelector(".positionsboard > div > span");
+const hv = document.querySelector(".hv");
 const cellsAI = document.querySelectorAll(".AI > .field > div");
 
 function init() {
@@ -33,6 +34,7 @@ function init() {
         hov.turn(!currentShip.position);
         hov.num = currentShip.length;
         hov.hovering();
+        hv.textContent = currentShip.position?"Horizently":"Vertecly";
     });
 
     cells.forEach(cell=>{
@@ -47,6 +49,7 @@ function init() {
                 hov.num = currentShip.length;
                 shipName.textContent = currentShip.name;
                 hov.place = false;
+                hv.textContent = currentShip.position?" Horizently ":" Vertecly ";
             } 
         });
     });

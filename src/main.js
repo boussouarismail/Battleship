@@ -56,4 +56,4 @@ function display(board, cells) {
     }
 };
 
-display(AI.board.board, cellsPlayer);
+//display(AI.board.board, cellsPlayer);
