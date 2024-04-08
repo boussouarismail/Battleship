@@ -34,7 +34,7 @@ function init() {
         hov.turn(!currentShip.position);
         hov.num = currentShip.length;
         hov.hovering();
-        hv.textContent = currentShip.position?"Horizentlly":"Verteclly";
+        hv.textContent = currentShip.position?"horizontally":"vertically";
     });
 
     cells.forEach(cell=>{
@@ -49,7 +49,7 @@ function init() {
                 hov.num = currentShip.length;
                 shipName.textContent = currentShip.name;
                 hov.place = false;
-                hv.textContent = currentShip.position?" Horizentlly ":" Verteclly ";
+                hv.textContent = currentShip.position?" horizontally ":" vertically ";
             } 
         });
     });
